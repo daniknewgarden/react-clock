@@ -1,27 +1,23 @@
 import React, { useState, useEffect } from "react";
 import "./App.scss";
 import Title from "./components/Title/Title";
+import { useCurrentDate } from "./hooks/useCurrentDate";
 import { usePosition } from "./hooks/usePosition";
-import { GetApiData } from "./hooks/getApiData";
 
 function App() {
   const position = usePosition();
-  const getData = GetApiData(position.latitude, position.longitude);
 
-  const [weather, setWeather] = useState(null);
-  const [data, setData] = useState(getData);
+  const date = useCurrentDate();
 
-  useEffect(() => {
-    setWeather(getData.current);
-
-    // console.log(weather);
-  }, [getData, position, weather]);
+  console.log(date);
 
   return (
     <div className="App">
-      <Title text={`${position.longitude}`} />
+      <Title text={`${position.longitude}, ${position.latitude}`} />
 
-      {weather && <Title text={`${weather.temp_c}°`} />}
+      <Title
+        text={`${date.hours}:${date.minutes}:${date.seconds}, ${date.hh}, ${date.mm}, ${date.ss}`}
+      />
     </div>
   );
 }

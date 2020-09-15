@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export const usePosition = () => {
+export const usePosition = (callback) => {
   //Object with latitude, longitude, error
   const [position, setPosition] = useState({});
   //Error
