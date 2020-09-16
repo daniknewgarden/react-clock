@@ -1,32 +1,38 @@
 import { useState, useEffect } from "react";
 
-export const usePosition = (callback) => {
-  //Object with latitude, longitude, error
-  const [position, setPosition] = useState({});
-  //Error
-  const [error, setError] = useState(null);
+export const usePosition = (options = {}) => {
+  // store location in state
+  const [location, setLocation] = useState();
+  // store error message in state
+  const [error, setError] = useState();
 
-  //If permission granted
-  const onSuccess = ({ coords }) => {
-    setPosition({
-      latitude: coords.latitude,
-      longitude: coords.longitude,
+  // Success handler for geolocation's `getCurrentPosition` method
+  const handleSuccess = (pos) => {
+    const { latitude, longitude } = pos.coords;
+
+    setLocation({
+      latitude,
+      longitude,
     });
   };
 
-  //If permission denied or another error
-  const onError = (error) => {
+  // Error handler for geolocation's `getCurrentPosition` method
+  const handleError = (error) => {
     setError(error.message);
   };
 
-  //Location request
   useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(onSuccess, onError);
-    } else {
-      console.log("Geolocation is not supported by this browser.");
+    const { geolocation } = navigator;
+
+    // If the geolocation is not defined in the used browser we handle it as an error
+    if (!geolocation) {
+      setError("Geolocation is not supported.");
+      return;
     }
+
+    // Call Geolocation API
+    geolocation.getCurrentPosition(handleSuccess, handleError);
   }, []);
 
-  return { ...position, error };
+  return { location, error };
 };
