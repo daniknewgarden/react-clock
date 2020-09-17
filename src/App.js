@@ -11,6 +11,7 @@ function App() {
       {location && (
         <Title text={`${location.longitude}, ${location.latitude}`} />
       )}
+      {error && <Title text={`${error}`} />}
     </div>
   );
 }

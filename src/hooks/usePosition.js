@@ -24,9 +24,9 @@ export const usePosition = (options = {}) => {
   useEffect(() => {
     const { geolocation } = navigator;
 
-    // If the geolocation is not defined in the used browser we handle it as an error
+    // If the geolocation is not defined in the used browser return error
     if (!geolocation) {
-      setError("Geolocation is not supported.");
+      setError("Geolocation access denied. Please get location access");
       return;
     }
 
