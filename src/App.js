@@ -8,8 +8,10 @@ function App() {
 
   //Data from API
   const [dataFromAPI, setDataFromAPI] = useState(null);
+  //Weather
+  const [weather, setWeather] = useState(null);
 
-  //Change url to API Request
+  //Api request
   useEffect(() => {
     if (location) {
       fetch(
@@ -25,6 +27,15 @@ function App() {
     }
   }, [location]);
 
+  //Get weather
+  useEffect(() => {
+    if (dataFromAPI) {
+      let weather = dataFromAPI.current;
+
+      setWeather(weather);
+    }
+  }, [dataFromAPI]);
+
   const toggleClick = () => {
     console.log("click");
   };
@@ -38,6 +49,14 @@ function App() {
 
       {dataFromAPI && (
         <Title text={`${dataFromAPI.location.name}`} onClick={toggleClick} />
+      )}
+
+      {weather && <Title text={`${weather.temp_c}°`} />}
+      {weather && (
+        <img
+          src={`${weather.condition.icon}`}
+          alt={`${weather.condition.text} weather`}
+        />
       )}
     </div>
   );
