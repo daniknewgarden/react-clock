@@ -10,7 +10,8 @@ function App() {
   const [dataFromAPI, setDataFromAPI] = useState(null);
   //Weather
   const [weather, setWeather] = useState(null);
-
+  //Location info (city name)
+  const [locationInfo, setLocationInfo] = useState(null);
   //Api request
   useEffect(() => {
     if (location) {
@@ -36,9 +37,14 @@ function App() {
     }
   }, [dataFromAPI]);
 
-  const toggleClick = () => {
-    console.log("click");
-  };
+  //Get location info
+  useEffect(() => {
+    if (dataFromAPI) {
+      let weather = dataFromAPI.location;
+
+      setLocationInfo(weather);
+    }
+  }, [dataFromAPI]);
 
   return (
     <div className="App">
@@ -47,10 +53,6 @@ function App() {
       )}
       {error && <Title text={`${error}`} />}
 
-      {dataFromAPI && (
-        <Title text={`${dataFromAPI.location.name}`} onClick={toggleClick} />
-      )}
-
       {weather && <Title text={`${weather.temp_c}°`} />}
       {weather && (
         <img
@@ -58,6 +60,8 @@ function App() {
           alt={`${weather.condition.text} weather`}
         />
       )}
+
+      {locationInfo && <Title text={`${locationInfo.name}`} />}
     </div>
   );
 }
