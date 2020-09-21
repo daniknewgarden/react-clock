@@ -25,6 +25,10 @@ function App() {
     }
   }, [location]);
 
+  const toggleClick = () => {
+    console.log("click");
+  };
+
   return (
     <div className="App">
       {location && (
@@ -32,7 +36,9 @@ function App() {
       )}
       {error && <Title text={`${error}`} />}
 
-      {dataFromAPI && <Title text={`${dataFromAPI.location.name}`} />}
+      {dataFromAPI && (
+        <Title text={`${dataFromAPI.location.name}`} onClick={toggleClick} />
+      )}
     </div>
   );
 }
