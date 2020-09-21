@@ -1,21 +1,15 @@
-//Get weather data from API
-function getApiData(position) {
+//Get json data from your API using fetch
+export const getDataFromAPI = (url) => {
   let APIdata = null;
 
-  //API request
-  fetch(
-    `https://api.weatherapi.com/v1/current.json?key=4211749ff95543348f4191634202508&q=${position.latitude},${position.longtitude}`
-  )
+  fetch(url)
     .then((response) => response.json())
-    //Set responde data to state
-    .then((data) => {
+    .then(function (data) {
       APIdata = data;
     })
-    //if error
     .catch((error) => {
-      console.error(error);
+      console.log(error);
     });
 
-  //Return data from API
   return APIdata;
-}
+};
