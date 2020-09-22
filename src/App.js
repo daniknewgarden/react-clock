@@ -3,6 +3,7 @@ import "./App.scss";
 import Title from "./components/Title/Title";
 import { useTime } from "./hooks/useTime";
 import { usePosition } from "./hooks/usePosition";
+import { useDate } from "./hooks/useDate";
 
 function App() {
   const { location, error } = usePosition();
@@ -16,6 +17,8 @@ function App() {
 
   //Get and update time
   const time = useTime();
+  //Get date
+  const date = useDate();
 
   //Api request
   useEffect(() => {
@@ -75,6 +78,8 @@ function App() {
       )}
 
       {time && <Title text={`${time.hours}:${time.minutes}:${time.seconds}`} />}
+
+      {date && <Title text={`${date.day}, ${date.monthName}`} />}
     </div>
   );
 }
