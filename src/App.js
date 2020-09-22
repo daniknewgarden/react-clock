@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.scss";
 import Title from "./components/Title/Title";
+import { useTime } from "./hooks/useTime";
 import { usePosition } from "./hooks/usePosition";
 
 function App() {
@@ -12,6 +13,10 @@ function App() {
   const [weather, setWeather] = useState(null);
   //Location info (city name)
   const [locationInfo, setLocationInfo] = useState(null);
+
+  //Get and update time
+  const time = useTime();
+
   //Api request
   useEffect(() => {
     if (location) {
@@ -46,6 +51,10 @@ function App() {
     }
   }, [dataFromAPI]);
 
+  const toggleClick = () => {
+    console.log("click");
+  };
+
   return (
     <div className="App">
       {location && (
@@ -61,7 +70,11 @@ function App() {
         />
       )}
 
-      {locationInfo && <Title text={`${locationInfo.name}`} />}
+      {locationInfo && (
+        <Title text={`${locationInfo.name}`} onClick={toggleClick} />
+      )}
+
+      {time && <Title text={`${time.hours}:${time.minutes}:${time.seconds}`} />}
     </div>
   );
 }
