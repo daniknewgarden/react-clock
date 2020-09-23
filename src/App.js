@@ -1,13 +1,21 @@
+//React
 import React, { useState, useEffect } from "react";
+//Styles
 import "./App.scss";
-import Title from "./components/Title/Title";
+//Components
+import Title from "./components/Title/Title.jsx";
+//Hooks
 import { useTime } from "./hooks/useTime";
 import { usePosition } from "./hooks/usePosition";
 import { useDate } from "./hooks/useDate";
+import { Subtitle } from "./components/Subtitle/Subtitle";
 
+//Component
 function App() {
-  const { location, error } = usePosition();
+  //Logic
 
+  //Location
+  const { location, error } = usePosition();
   //Data from API
   const [dataFromAPI, setDataFromAPI] = useState(null);
   //Weather
@@ -54,32 +62,11 @@ function App() {
     }
   }, [dataFromAPI]);
 
-  const toggleClick = () => {
-    console.log("click");
-  };
-
+  //UI
   return (
-    <div className="App">
-      {location && (
-        <Title text={`${location.latitude}, ${location.longitude}`} />
-      )}
-      {error && <Title text={`${error}`} />}
-
-      {weather && <Title text={`${weather.temp_c}°`} />}
-      {weather && (
-        <img
-          src={`${weather.condition.icon}`}
-          alt={`${weather.condition.text} weather`}
-        />
-      )}
-
-      {locationInfo && (
-        <Title text={`${locationInfo.name}`} onClick={toggleClick} />
-      )}
-
-      {time && <Title text={`${time.hours}:${time.minutes}:${time.seconds}`} />}
-
-      {date && <Title text={`${date.day}, ${date.monthName}`} />}
+    <div className="App ligth">
+      <Title text="Hello world!" />
+      <Subtitle text="Small hello ;)" />
     </div>
   );
 }

@@ -1,4 +1,17 @@
+.App.ligth {
+  //Colors
+  --color-surface: #e7eef3;
+  --color-upper-elem: #e7eef2;
+  --color-text: #212121;
+  --color-accent: #651fff;
+  --color-accent-danger: #f50057;
+}
+
 .App {
+  //Font Inter enabled only with weight 700
+  font-family: "Inter", sans-serif;
+  color: var(--color-text);
   text-align: center;
   min-height: 100vh;
+  background-color: var(--color-surface);
 }
