@@ -14,6 +14,8 @@ import { Subtitle } from "./components/Subtitle/Subtitle";
 function App() {
   //Logic
 
+  //Theme
+  const [darkTheme, setdarkTheme] = useState(true);
   //Location
   const { location, error } = usePosition();
   //Data from API
@@ -64,7 +66,7 @@ function App() {
 
   //UI
   return (
-    <div className="App ligth">
+    <div className={`App ${darkTheme ? "dark" : "ligth"}`}>
       <Title text="Hello world!" />
       <Subtitle text="Small hello ;)" />
     </div>

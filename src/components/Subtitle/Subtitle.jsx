@@ -3,5 +3,5 @@ import React from "react";
 import "./subtitle.scss";
 
 export const Subtitle = ({ text }) => {
-  return <h3>{text}</h3>;
+  return <h3 className="subtitle">{text}</h3>;
 };

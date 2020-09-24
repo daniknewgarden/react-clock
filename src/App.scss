@@ -1,3 +1,4 @@
+//Themes
 .App.ligth {
   //Colors
   --color-surface: #e7eef3;
@@ -5,6 +6,15 @@
   --color-text: #212121;
   --color-accent: #651fff;
   --color-accent-danger: #f50057;
+}
+
+.App.dark {
+  //Colors
+  --color-surface: #212121;
+  --color-upper-elem: #212121;
+  --color-text: #ffffff;
+  --color-accent: #b893ff;
+  --color-accent-danger: #ee1111;
 }
 
 .App {
