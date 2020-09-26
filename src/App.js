@@ -3,19 +3,20 @@ import React, { useState, useEffect } from "react";
 //Styles
 import "./App.scss";
 //Components
-import Title from "./components/Title/Title.jsx";
+import Title from "./components/Text/Title/Title.jsx";
+import { Subtitle } from "./components/Text/Subtitle/Subtitle";
+import { AnalogClock } from "./components/AnalogClock/AnalogClock";
 //Hooks
 import { useTime } from "./hooks/useTime";
 import { usePosition } from "./hooks/usePosition";
 import { useDate } from "./hooks/useDate";
-import { Subtitle } from "./components/Subtitle/Subtitle";
 
 //Component
 function App() {
   //Logic
 
   //Theme
-  const [darkTheme, setdarkTheme] = useState(true);
+  const [darkTheme, setdarkTheme] = useState(false);
   //Location
   const { location, error } = usePosition();
   //Data from API
@@ -67,8 +68,11 @@ function App() {
   //UI
   return (
     <div className={`App ${darkTheme ? "dark" : "ligth"}`}>
-      <Title text="Hello world!" />
-      <Subtitle text="Small hello ;)" />
+      {date && (
+        <>
+          <AnalogClock />
+        </>
+      )}
     </div>
   );
 }

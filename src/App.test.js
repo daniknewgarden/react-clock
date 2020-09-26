@@ -3,8 +3,9 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 //Testing componets
 import App from "./App";
-import Title from "./components/Title/Title";
-import { Subtitle } from "./components/Subtitle/Subtitle";
+import Title from "./components/Text/Title/Title";
+import { Subtitle } from "./components/Text/Subtitle/Subtitle";
+import { AnalogClock } from "./components/AnalogClock/AnalogClock";
 
 //Layout components tests
 test("Layout TITLE component test", () => {
@@ -14,6 +15,11 @@ test("Layout TITLE component test", () => {
 
 test("Layout SUBTITLE component test", () => {
   render(<Subtitle />);
+  screen.debug();
+});
+
+test("Layout ANALOG CLOCK component test", () => {
+  render(<AnalogClock />);
   screen.debug();
 });
 

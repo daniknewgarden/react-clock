@@ -1,0 +1,127 @@
+//Clock
+.allelog-clock {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-clock);
+  height: var(--size-clock);
+  border-radius: 50%;
+  box-shadow: -13px 13px 26px var(--color-shadow-first),
+    13px -13px 26px var(--color-shadow-first),
+    -13px -13px 26px var(--color-shadow-second),
+    13px 13px 33px var(--color-shadow-second),
+    inset 1px 1px 2px var(--color-shadow-third),
+    inset -1px -1px 2px var(--color-shadow-third);
+
+  //Round in the middle
+  &::after {
+    content: "";
+    position: relative;
+    display: block;
+    z-index: 999;
+    border-radius: 50%;
+    width: var(--size-clock-round);
+    height: var(--size-clock-round);
+    background: var(--color-text);
+  }
+
+  //Inside ring
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: var(--size-clock-inset);
+    height: var(--size-clock-inset);
+    border-radius: 300px;
+    box-shadow: -13px 13px 26px inset var(--color-shadow-first),
+      13px -13px 26px inset var(--color-shadow-first),
+      -13px -13px 26px inset var(--color-shadow-second),
+      13px 13px 33px inset var(--color-shadow-second),
+      1px 1px 2px var(--color-shadow-third),
+      -1px -1px 2px var(--color-shadow-third);
+  }
+
+  //Arrows
+  &__hours,
+  &__minutes,
+  &__seconds {
+    position: absolute;
+    &.animated {
+      transition: 1s all linear;
+    }
+    .hr,
+    .min,
+    .sec {
+      position: absolute;
+      display: flex;
+      position: absolute;
+      justify-content: center;
+      border-radius: 50%;
+    }
+  }
+
+  //Hours arrow
+  &__hours {
+    width: 160px;
+    height: 160px;
+    .hr {
+      width: 160px;
+      height: 160px;
+      //Arrow
+      &::before {
+        content: "";
+        position: absolute;
+        width: 7px;
+        height: var(--size-click-hours);
+        background: var(--color-text);
+        border-radius: 6px 6px 0 0;
+        z-index: 10;
+      }
+    }
+  }
+
+  //Minutes arrow
+  &__minutes {
+    width: 190px;
+    height: 190px;
+    .min {
+      width: 190px;
+      height: 190px;
+      //Arrow
+      &::before {
+        content: "";
+        position: absolute;
+        width: 5px;
+        height: var(--size-click-mins);
+        background: var(--color-accent-danger);
+        border-radius: 6px 6px 0 0;
+        z-index: 9;
+      }
+    }
+  }
+
+  //Seconds arrow
+  &__seconds {
+    transition: 0s;
+    width: 230px;
+    height: 230px;
+    .sec {
+      width: 230px;
+      height: 230px;
+      //Arrow
+      &::before {
+        content: "";
+        position: absolute;
+        width: 2px;
+        height: var(--size-click-sec);
+        background: var(--color-accent);
+        border-radius: 6px 6px 0 0;
+        z-index: 8;
+      }
+    }
+  }
+}

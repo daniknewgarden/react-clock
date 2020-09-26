@@ -1,11 +1,29 @@
+// //TODO: remove this test border
+// * {
+//   border: 1px solid red;
+// }
+
 //Themes
-.App.ligth {
+.App {
+  //Sizes
+  --size-clock: 300px;
+  --size-clock-inset: 255px;
+  --size-clock-round: 17px;
+  --size-click-hours: 85px;
+  --size-click-mins: 87px;
+  --size-click-sec: 118px;
+
   //Colors
   --color-surface: #e7eef3;
   --color-upper-elem: #e7eef2;
   --color-text: #212121;
   --color-accent: #651fff;
   --color-accent-danger: #f50057;
+
+  //Shadow colors
+  --color-shadow-first: rgba(200, 200, 200, 0.2);
+  --color-shadow-second: rgba(250, 250, 250, 0.9);
+  --color-shadow-third: rgba(250, 250, 250, 0.3);
 }
 
 .App.dark {
@@ -15,13 +33,25 @@
   --color-text: #ffffff;
   --color-accent: #b893ff;
   --color-accent-danger: #ee1111;
+  //Shadow-colors
+  --color-shadow-first: rgba(25, 25, 25, 0.2);
+  --color-shadow-second: rgba(41, 41, 41, 0.9);
+  --color-shadow-third: rgba(25, 25, 25, 0.5);
 }
 
 .App {
-  //Font Inter enabled only with weight 700
+  //Font Inter default font-weight 700 (500 is avaliable too)
   font-family: "Inter", sans-serif;
   color: var(--color-text);
+  font-weight: 700;
   text-align: center;
   min-height: 100vh;
   background-color: var(--color-surface);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 45px;
 }
