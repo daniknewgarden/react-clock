@@ -5,6 +5,7 @@ import "./analogclock.scss";
 import { useTime } from "../../hooks/useTime";
 
 export const AnalogClock = () => {
+  
   //Hook to get current time and analog clock arrow rotation
   const time = useTime();
 

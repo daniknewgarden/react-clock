@@ -6,6 +6,7 @@ import App from "./App";
 import Title from "./components/Text/Title/Title";
 import { Subtitle } from "./components/Text/Subtitle/Subtitle";
 import { AnalogClock } from "./components/AnalogClock/AnalogClock";
+import { Weather } from "./components/Weather/Weather";
 
 //Layout components tests
 test("Layout TITLE component test", () => {
@@ -15,6 +16,11 @@ test("Layout TITLE component test", () => {
 
 test("Layout SUBTITLE component test", () => {
   render(<Subtitle />);
+  screen.debug();
+});
+
+test("Layout WEATHER component test", () => {
+  render(<Weather />);
   screen.debug();
 });
 

@@ -1,0 +1,14 @@
+.weather {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__icon {
+    margin: 0 10px 0 15px;
+    width: 64px;
+    height: 64px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 125%;
+  }
+}
