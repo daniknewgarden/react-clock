@@ -5,7 +5,9 @@ import "./App.scss";
 //Components
 import Title from "./components/Text/Title/Title.jsx";
 import { Subtitle } from "./components/Text/Subtitle/Subtitle";
+import { Date } from "./components/Date/Date";
 import { AnalogClock } from "./components/AnalogClock/AnalogClock";
+import { DigitalClock } from "./components/DigitalClock/DigitalClock";
 //Hooks
 import { useTime } from "./hooks/useTime";
 import { useDate } from "./hooks/useDate";
@@ -25,7 +27,9 @@ function App() {
   return (
     <div className={`App ${darkTheme ? "dark" : "ligth"}`}>
       <Weather />
+      <Date />
       <AnalogClock />
+      <DigitalClock />
     </div>
   );
 }

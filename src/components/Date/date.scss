@@ -1,0 +1,14 @@
+.date {
+  display: flex;
+  align-items: flex-start;
+
+  //Day num
+  &__day {
+    font-size: 36px;
+  }
+  //Mount name
+  &__mount {
+    margin: 5px 0 0 3px;
+    font-size: 14px;
+  }
+}

@@ -7,29 +7,43 @@ import Title from "./components/Text/Title/Title";
 import { Subtitle } from "./components/Text/Subtitle/Subtitle";
 import { AnalogClock } from "./components/AnalogClock/AnalogClock";
 import { Weather } from "./components/Weather/Weather";
+import { Date } from "./components/Date/Date";
+import { DigitalClock } from "./components/DigitalClock/DigitalClock";
 
-//Layout components tests
-test("Layout TITLE component test", () => {
-  render(<Title />);
-  screen.debug();
+describe("Layout components test", () => {
+  it("TITLE component test", () => {
+    render(<Title />);
+    screen.debug();
+  });
+
+  it("SUBTITLE component test", () => {
+    render(<Subtitle />);
+    screen.debug();
+  });
+
+  it("WEATHER component test", () => {
+    render(<Weather />);
+    screen.debug();
+  });
+
+  it("DATE component test", () => {
+    render(<Date />);
+  });
+
+  it("ANALOG CLOCK component test", () => {
+    render(<AnalogClock />);
+    screen.debug();
+  });
+
+  it("DIGITAL CLOCK component test", () => {
+    render(<DigitalClock />);
+    screen.debug();
+  });
+
+  it("APP component test", () => {
+    render(<App />);
+    screen.debug();
+  });
 });
 
-test("Layout SUBTITLE component test", () => {
-  render(<Subtitle />);
-  screen.debug();
-});
-
-test("Layout WEATHER component test", () => {
-  render(<Weather />);
-  screen.debug();
-});
-
-test("Layout ANALOG CLOCK component test", () => {
-  render(<AnalogClock />);
-  screen.debug();
-});
-
-test("Layout APP component test", () => {
-  render(<App />);
-  screen.debug();
-});
+describe("Text content test", () => {});
