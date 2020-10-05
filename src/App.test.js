@@ -10,6 +10,7 @@ import { Weather } from "./components/Weather/Weather";
 import { Date } from "./components/Date/Date";
 import { DigitalClock } from "./components/DigitalClock/DigitalClock";
 import { Switcher } from "./components/Switcher/Switcher";
+import { Button } from "./components/Button/Button";
 
 describe("Layout components test", () => {
   it("TITLE component test", () => {
@@ -43,6 +44,11 @@ describe("Layout components test", () => {
 
   it("SWITCHER component test", () => {
     render(<Switcher />);
+    screen.debug();
+  });
+
+  it("BUTTON component test", () => {
+    render(<Button />);
     screen.debug();
   });
 
