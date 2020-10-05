@@ -76,12 +76,32 @@
   align-items: center;
   justify-content: space-between;
 
-  padding: 45px 0 95px 0;
+  padding: 45px 30px;
 
   //Top part (Weather and Date components)
   &__top-part {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  //Middle part (Analog and Digital clocks)
+  &__middle-part {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+
+    //Margin from top for all components inside
+    section:not(:first-child) {
+      margin-top: 75px;
+    }
+  }
+
+  //Bottom part (open settings button)
+  &__bottom-part {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
   }
 }

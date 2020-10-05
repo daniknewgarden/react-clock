@@ -32,10 +32,13 @@ function App() {
         <Weather />
         <Date />
       </div>
-      <AnalogClock />
-      <DigitalClock />
-      <Switcher />
-      <Button icon={icon} />
+      <div className="App__middle-part">
+        <AnalogClock />
+        <DigitalClock />
+      </div>
+      <div className="App__bottom-part">
+        <Button icon={icon} />
+      </div>
     </div>
   );
 }
