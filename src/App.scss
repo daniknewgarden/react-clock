@@ -5,6 +5,9 @@
 
 //Themes
 .App {
+  //Animation
+  --animation-speed: 0.3s;
+
   //Sizes
   --size-clock: 300px;
   --size-clock-inset: 255px;
@@ -14,11 +17,27 @@
   --size-click-sec: 118px;
 
   //Colors
-  --color-surface: #e7eef3;
+  --color-surface: #eaecf2;
   --color-upper-elem: #e7eef2;
   --color-text: #212121;
-  --color-accent: #651fff;
-  --color-accent-danger: #f50057;
+  --color-enabled: #6dff69;
+  --color-danger: #f50057;
+
+  //Elements colors
+  --color-element: #eef0f5;
+  --color-element-shadow: rgba(255, 255, 255, 0.7);
+  --color-element-shadow-second: rgba(166, 180, 200, 0.65);
+
+  //Accent colors
+  --color-accent: #5a88ff;
+  --color-accent-shadow: #3f6fea;
+
+  //Enabled colors
+  --color-enabled: #7dff7a;
+  --color-enabled-second: #5eff5a;
+  --color-enabled-focus: #59df57;
+  --color-enabled-focus-second: rgb(83, 252, 80);
+  --color-enabled-shadow: #56eb52;
 
   //Shadow colors
   --color-shadow-first: rgba(200, 200, 200, 0.2);
@@ -40,6 +59,10 @@
 }
 
 .App {
+  //Normalize
+  position: relative;
+  z-index: 1;
+
   //Font Inter default font-weight 700 (500 is avaliable too)
   font-family: "Inter", sans-serif;
   color: var(--color-text);
@@ -51,7 +74,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 
-  padding: 45px;
+  padding: 45px 0 95px 0;
+
+  //Top part (Weather and Date components)
+  &__top-part {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }

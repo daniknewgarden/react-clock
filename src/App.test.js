@@ -9,6 +9,7 @@ import { AnalogClock } from "./components/AnalogClock/AnalogClock";
 import { Weather } from "./components/Weather/Weather";
 import { Date } from "./components/Date/Date";
 import { DigitalClock } from "./components/DigitalClock/DigitalClock";
+import { Switcher } from "./components/Switcher/Switcher";
 
 describe("Layout components test", () => {
   it("TITLE component test", () => {
@@ -37,6 +38,11 @@ describe("Layout components test", () => {
 
   it("DIGITAL CLOCK component test", () => {
     render(<DigitalClock />);
+    screen.debug();
+  });
+
+  it("SWITCHER component test", () => {
+    render(<Switcher />);
     screen.debug();
   });
 

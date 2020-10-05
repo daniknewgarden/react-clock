@@ -12,6 +12,7 @@ import { DigitalClock } from "./components/DigitalClock/DigitalClock";
 import { useTime } from "./hooks/useTime";
 import { useDate } from "./hooks/useDate";
 import { Weather } from "./components/Weather/Weather";
+import { Switcher } from "./components/Switcher/Switcher";
 
 //Component
 function App() {
@@ -26,10 +27,13 @@ function App() {
   //UI
   return (
     <div className={`App ${darkTheme ? "dark" : "ligth"}`}>
-      <Weather />
-      <Date />
+      <div className="App__top-part">
+        <Weather />
+        <Date />
+      </div>
       <AnalogClock />
       <DigitalClock />
+      <Switcher />
     </div>
   );
 }
