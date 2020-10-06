@@ -12,6 +12,7 @@ import { Button } from "./components/Button/Button";
 //Hooks
 import { useTime } from "./hooks/useTime";
 import { useDate } from "./hooks/useDate";
+import { useBrowserTheme } from "./hooks/useBrowserTheme";
 //Icons
 import icon from "./icons/Vector.svg";
 
@@ -19,8 +20,17 @@ import icon from "./icons/Vector.svg";
 function App() {
   //Logic
 
+  //Hook returns true if system dark theme (false if light)
+  const browserTheme = useBrowserTheme();
+
   //Theme
   const [darkTheme, setdarkTheme] = useState(false);
+
+  useEffect(() => {
+    if (browserTheme) {
+      setdarkTheme(browserTheme);
+    }
+  }, [browserTheme]);
 
   //Get and update time
   const time = useTime();

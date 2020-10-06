@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 //Styles
 import "./button.scss";
 
 export const Button = ({ text, icon, callback }) => {
   const [enabled, setEnabled] = useState(false);
-
-  useEffect(() => {
-    console.log(enabled);
-  }, [enabled]);
 
   const toggleClick = () => {
     setEnabled(!enabled);
