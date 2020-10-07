@@ -7,6 +7,13 @@ export const useTime = (interval = 1000) => {
   //Final time object
   const [time, setTime] = useState(null);
 
+  //Time fotmat function (12:1:1 = 12:01:01)
+  const formatTime = (num) => {
+    const formatedNum = num.toString().padStart(2, "0");
+
+    return formatedNum;
+  };
+
   //Update time
   useEffect(() => {
     const getTime = setInterval(() => {
@@ -20,12 +27,12 @@ export const useTime = (interval = 1000) => {
   //Get object with current hours, minutes, seconds and rotate degrees for analog clock arrows
   useEffect(() => {
     const timeData = {
-      hours: now.getHours(),
-      minutes: now.getMinutes(),
-      seconds: now.getSeconds(),
+      hours: formatTime(now.getHours()),
+      minutes: formatTime(now.getMinutes()),
+      seconds: formatTime(now.getSeconds()),
       //360 deg / 12 hours = 30 deg per hour
       hh: now.getHours() * 30,
-      //360 deg / 60 seconds = 6 deg per second
+      //360 deg / 60 = 6 deg per second/minute
       mm: now.getMinutes() * 6,
       ss: now.getSeconds() * 6,
     };
