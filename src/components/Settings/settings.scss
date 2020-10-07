@@ -1,0 +1,25 @@
+//Styles for Settings component
+.settings {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+
+  &__part:not(:first-child) {
+    margin-top: 35px;
+  }
+
+  &__part {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__controls {
+    margin-top: 25px;
+
+    .button:not(:first-child) {
+      margin-left: 50px;
+    }
+  }
+}

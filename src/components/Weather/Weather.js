@@ -5,7 +5,7 @@ import { usePosition } from "../../hooks/usePosition";
 import "./weather.scss";
 //Components
 import { Subtitle } from "../Text/Subtitle/Subtitle";
-import Title from "../Text/Title/Title";
+import { Title } from "../Text/Title/Title";
 
 export const Weather = () => {
   //Location

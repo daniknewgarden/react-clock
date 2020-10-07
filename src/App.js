@@ -13,6 +13,7 @@ import { Button } from "./components/Button/Button";
 import { useBrowserTheme } from "./hooks/useBrowserTheme";
 //Icons
 import icon from "./icons/Vector.svg";
+import { Settings } from "./components/Settings/Settings";
 
 //Component
 function App() {
@@ -33,14 +34,15 @@ function App() {
   //UI
   return (
     <div className={`App ${darkTheme ? "dark" : "ligth"}`}>
-      <div className="App__top-part">
+      {/* <div className="App__top-part">
         <Weather />
         <Date />
       </div>
       <div className="App__middle-part">
         <AnalogClock />
         <DigitalClock />
-      </div>
+      </div> */}
+      <Settings />
       <div className="App__bottom-part">
         <Button icon={icon} />
       </div>

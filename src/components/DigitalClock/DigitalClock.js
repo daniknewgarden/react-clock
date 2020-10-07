@@ -1,5 +1,6 @@
 import React from "react";
-import Title from "../Text/Title/Title";
+//Components
+import { Title } from "../Text/Title/Title";
 //Styles
 import "./digitalclock.scss";
 //Hooks
