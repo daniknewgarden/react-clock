@@ -9,6 +9,8 @@ export const Button = ({ text, icon, callback }) => {
     setEnabled(!enabled);
   };
 
+  //Hello world!
+
   return (
     <button
       className={`button ${enabled ? "enabled" : ""}`}
