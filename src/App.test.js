@@ -3,7 +3,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 //Testing componets
 import App from "./App";
-import Title from "./components/Text/Title/Title";
+import {Title} from "./components/Text/Title/Title";
 import { Subtitle } from "./components/Text/Subtitle/Subtitle";
 import { AnalogClock } from "./components/AnalogClock/AnalogClock";
 import { Weather } from "./components/Weather/Weather";

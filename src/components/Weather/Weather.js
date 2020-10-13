@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 //Hooks
 import { usePosition } from "../../hooks/usePosition";
-//Styles
-import "./weather.scss";
 //Components
 import { Subtitle } from "../Text/Subtitle/Subtitle";
 import { Title } from "../Text/Title/Title";
+//Styles
+import "./weather.scss";
 
 export const Weather = () => {
   //Location

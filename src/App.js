@@ -1,19 +1,13 @@
 //React
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 //Styles
 import "./App.scss";
-//Components
-import { Weather } from "./components/Weather/Weather";
-import { Date } from "./components/Date/Date";
-import { AnalogClock } from "./components/AnalogClock/AnalogClock";
-import { DigitalClock } from "./components/DigitalClock/DigitalClock";
-import { Switcher } from "./components/Switcher/Switcher";
 import { Button } from "./components/Button/Button";
+import { Settings } from "./components/Settings/Settings";
 //Hooks
 import { useBrowserTheme } from "./hooks/useBrowserTheme";
 //Icons
 import icon from "./icons/Vector.svg";
-import { Settings } from "./components/Settings/Settings";
 
 //Component
 function App() {
@@ -25,6 +19,7 @@ function App() {
   //Theme
   const [darkTheme, setdarkTheme] = useState(false);
 
+  //Apply browser theme
   useEffect(() => {
     if (browserTheme) {
       setdarkTheme(browserTheme);
