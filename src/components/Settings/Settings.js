@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from "react";
-//Styles
-import "./settings.scss";
+import React from "react";
+import { MultipleRadio } from "../MultipleRadio/MultipleRadio";
+import { Switcher } from "../Switcher/Switcher";
 //Components
 import { Title } from "../Text/Title/Title";
-import { Switcher } from "../Switcher/Switcher";
-import { Button } from "../Button/Button";
-import { MultipleRadio } from "../MultipleRadio/MultipleRadio";
+//Styles
+import "./settings.scss";
+
 
 export const Settings = ({ weather, timeFormat, tempUnits, darkTheme }) => {
-  //MultipleRadio options
+
+  //MultipleRadio options (icon:{src: `${imported icon}`, alt: 'string'})
   const timeOptions = [
     { text: "°F", value: "_f", name: "temp", checked: false },
-    { text: "°C", value: "_c", name: "temp", checked: true },
+    { text: '°C', value: "_c", name: "temp", checked: true },
   ];
 
   const tempOptions = [
@@ -30,13 +31,13 @@ export const Settings = ({ weather, timeFormat, tempUnits, darkTheme }) => {
       <div className="settings__part">
         <Title text="Time format" />
         <div className="settings__part">
-          <MultipleRadio props={timeOptions} />
+          <MultipleRadio props={timeOptions} defaultOption='_c'/>
         </div>
       </div>
       <div className="settings__part">
         <Title text="Temp units" />
         <div className="settings__part">
-          <MultipleRadio props={tempOptions} />
+          <MultipleRadio props={tempOptions} defaultOption={'24'}/>
         </div>
       </div>
       <div className="settings__part">

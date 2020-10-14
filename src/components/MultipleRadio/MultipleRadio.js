@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from 'react';
 //Styles
 import "./multipleradio.scss";
 
+
 //options is array with objects (keys: text, value, icon)
-export const MultipleRadio = ({ props }) => {
-  const sayHello = () => console.log("Hello");
+export const MultipleRadio = ({ props, defaultOption }) => {
+
+  const [option, setOption] = useState(defaultOption)
+
+  const changeOption = (arg) => setOption(arg);
 
   const options = props.map((options, index) => {
+
     return (
       <label className="radio__option" key={index}>
         <input
@@ -15,6 +20,7 @@ export const MultipleRadio = ({ props }) => {
           value={options.value}
           name={options.name}
           defaultChecked={options.checked}
+          onChange={() => changeOption(options.value)}
         />
         {/* visual button */}
         <span className="radio__box"></span>
@@ -23,11 +29,11 @@ export const MultipleRadio = ({ props }) => {
         {/* if icon content*/}
         {options.icon && (
           <img
-            src={options.img.src}
+            src={options.icon.src}
             alt={
-              options.img.alt
-                ? options.img.alt
-                : "Sorry, I forget add description"
+              options.icon.alt
+                ? options.icon.alt
+                : "Sorry, I forget add image description"
             }
           />
         )}

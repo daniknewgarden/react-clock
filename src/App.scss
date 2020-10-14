@@ -38,18 +38,13 @@
   --color-enabled-focus: #59df57;
   --color-enabled-focus-second: rgb(83, 252, 80);
   --color-enabled-shadow: #56eb52;
-
-  //Shadow colors
-  --color-shadow-first: rgba(200, 200, 200, 0.2);
-  --color-shadow-second: rgba(250, 250, 250, 0.9);
-  --color-shadow-third: rgba(250, 250, 250, 0.3);
 }
 
 .App.dark {
   // //Colors
-  // --color-surface: #212121;
-  // --color-upper-elem: #212121;
-  // --color-text: #ffffff;
+  --color-surface: #212121;
+  --color-upper-elem: #212121;
+  --color-text: #ffffff;
   // --color-accent: #b893ff;
   // --color-accent-danger: #ee1111;
   // //Shadow-colors
@@ -60,9 +55,9 @@
   // --color-danger: #f50057;
 
   // //Elements colors
-  // --color-element: #212121;
-  // --color-element-shadow: rgba(0, 0, 0, 0.7);
-  // --color-element-shadow-second: rgba(27, 27, 27, 0.65);
+  --color-element: #212121;
+  --color-element-shadow: rgba(0, 0, 0, 0.7);
+  --color-element-shadow-second: rgba(27, 27, 27, 0.65);
 
   // //Accent colors
   // --color-accent: #b893ff;
