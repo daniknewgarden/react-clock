@@ -2,8 +2,6 @@ import React from "react";
 //Styles
 import "./title.scss";
 
-const Title = ({ text }) => {
+export const Title = ({ text }) => {
   return <h2 className={"title"}>{text}</h2>;
 };
-
-export default Title;

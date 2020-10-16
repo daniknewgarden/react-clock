@@ -1,20 +1,20 @@
 //React
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+//Router
+import { Route, useHistory } from 'react-router-dom';
 //Styles
 import "./App.scss";
 //Components
-import { Weather } from "./components/Weather/Weather";
-import { Date } from "./components/Date/Date";
-import { AnalogClock } from "./components/AnalogClock/AnalogClock";
-import { DigitalClock } from "./components/DigitalClock/DigitalClock";
-import { Switcher } from "./components/Switcher/Switcher";
+import { Weather } from './components/Weather/Weather';
+import { Date } from './components/Date/Date';
+import { AnalogClock } from './components/AnalogClock/AnalogClock';
+import { DigitalClock } from './components/DigitalClock/DigitalClock';
 import { Button } from "./components/Button/Button";
+import { Settings } from "./components/Settings/Settings";
 //Hooks
-import { useTime } from "./hooks/useTime";
-import { useDate } from "./hooks/useDate";
 import { useBrowserTheme } from "./hooks/useBrowserTheme";
 //Icons
-import icon from "./icons/Vector.svg";
+import icon from "./icons/SettingsUnactive.svg";
 
 //Component
 function App() {
@@ -24,30 +24,46 @@ function App() {
   const browserTheme = useBrowserTheme();
 
   //Theme
-  const [darkTheme, setdarkTheme] = useState(false);
+  const [darkTheme, setDarkTheme] = useState(false);
+  //Settings
+  const [settingsOpened, setSettingsOpened] = useState(false)
 
+  // Apply browser theme
   useEffect(() => {
     if (browserTheme) {
-      setdarkTheme(browserTheme);
+      setDarkTheme(browserTheme);
     }
   }, [browserTheme]);
 
-  //Get and update time
-  const time = useTime();
+  //Routing
+  const history = useHistory();
+
+  const handleHistory = () => {
+    setSettingsOpened(!settingsOpened)
+  }
+
+  useEffect(() => {
+    settingsOpened ? history.push('/settings') : history.push('/home')
+  }, [history, settingsOpened])
 
   //UI
   return (
-    <div className={`App ${darkTheme ? "dark" : "ligth"}`}>
-      <div className="App__top-part">
-        <Weather />
-        <Date />
-      </div>
-      <div className="App__middle-part">
-        <AnalogClock />
-        <DigitalClock />
-      </div>
+    <div className={`App ${darkTheme ? "dark" : "light"}`}>
+      <Route path='/home'>
+        <div className="App__top-part">
+          <Weather />
+          <Date />
+        </div>
+        <div className="App__middle-part">
+          <AnalogClock />
+          <DigitalClock />
+        </div>
+      </Route>
+      <Route path='/settings'>
+        <Settings />
+      </Route>
       <div className="App__bottom-part">
-        <Button icon={icon} />
+        <Button icon={icon} onClick={handleHistory}/>
       </div>
     </div>
   );
