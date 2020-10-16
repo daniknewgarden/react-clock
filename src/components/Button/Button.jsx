@@ -2,14 +2,17 @@ import React, { useState } from "react";
 //Styles
 import "./button.scss";
 
-export const Button = ({ text, icon, callback }) => {
+export const Button = ({ text, icon, onClick }) => {
   const [enabled, setEnabled] = useState(false);
 
   const toggleClick = () => {
     setEnabled(!enabled);
-  };
 
-  //Hello world!
+    //props callback function call
+    if (onClick) {
+      onClick()
+    }
+  };
 
   return (
     <button
