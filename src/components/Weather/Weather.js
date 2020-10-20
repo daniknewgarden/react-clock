@@ -20,6 +20,7 @@ export const Weather = () => {
   const [locationInfo, setLocationInfo] = useState(null);
 
   //Api request
+  //TODO: Replace to useMemo
   useEffect(() => {
     if (location) {
       fetch(

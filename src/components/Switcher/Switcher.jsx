@@ -2,8 +2,8 @@ import React, { useState } from "react";
 //Styles
 import "./switcher.scss";
 
-export const Switcher = ({ ariaLabel, callback }) => {
-  const [enabled, setEnabled] = useState(false);
+export const Switcher = ({ ariaLabel, callback, defaultState }) => {
+  const [enabled, setEnabled] = useState(defaultState);
 
   //Onclick function
   const toggleClick = () => {

@@ -7,11 +7,11 @@ export const useTime = (interval = 1000) => {
   //Final time object
   const [time, setTime] = useState(null);
 
-  //Time fotmat function (12:1:1 = 12:01:01)
+  //Time format function (12:1:1 = 12:01:01)
   const formatTime = (num) => {
-    const formatedNum = num.toString().padStart(2, "0");
+    const formattedNum = num.toString().padStart(2, "0");
 
-    return formatedNum;
+    return formattedNum;
   };
 
   //Update time

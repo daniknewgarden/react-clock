@@ -26,7 +26,9 @@ function App() {
   //Theme
   const [darkTheme, setDarkTheme] = useState(false);
   //Settings
-  const [settingsOpened, setSettingsOpened] = useState(false)
+  const [settingsOpened, setSettingsOpened] = useState(false);
+  //Weather
+  const [weatherEnabled, setWeatherEnabled] = useState(false);
 
   // Apply browser theme
   useEffect(() => {
@@ -34,6 +36,14 @@ function App() {
       setDarkTheme(browserTheme);
     }
   }, [browserTheme]);
+
+  const toggleTheme = () => {
+    setDarkTheme(!darkTheme)
+  }
+
+  const toggleWeather = () => {
+    setWeatherEnabled(!weatherEnabled);
+  }
 
   //Routing
   const history = useHistory();
@@ -51,7 +61,7 @@ function App() {
     <div className={`App ${darkTheme ? "dark" : "light"}`}>
       <Route path='/home'>
         <div className="App__top-part">
-          <Weather />
+          {weatherEnabled && <Weather/>}
           <Date />
         </div>
         <div className="App__middle-part">
@@ -60,7 +70,7 @@ function App() {
         </div>
       </Route>
       <Route path='/settings'>
-        <Settings />
+        <Settings weather={toggleWeather} weatherState={weatherEnabled} darkTheme={toggleTheme} themeState={darkTheme}/>
       </Route>
       <div className="App__bottom-part">
         <Button icon={icon} onClick={handleHistory}/>

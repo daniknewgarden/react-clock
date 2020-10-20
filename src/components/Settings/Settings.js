@@ -7,7 +7,7 @@ import { Title } from "../Text/Title/Title";
 import "./settings.scss";
 
 
-export const Settings = ({ weather, timeFormat, tempUnits, darkTheme }) => {
+export const Settings = ({ weather, weatherState, darkTheme, themeState }) => {
 
   //MultipleRadio options (icon:{src: `${imported icon}`, alt: 'string'})
   const timeOptions = [
@@ -25,7 +25,7 @@ export const Settings = ({ weather, timeFormat, tempUnits, darkTheme }) => {
       <div className="settings__part">
         <Title text="Weather" />
         <div className="settings__controls">
-          <Switcher />
+          <Switcher callback={weather} defaultState={weatherState} ariaLabel='weather'/>
         </div>
       </div>
       <div className="settings__part">
@@ -43,7 +43,7 @@ export const Settings = ({ weather, timeFormat, tempUnits, darkTheme }) => {
       <div className="settings__part">
         <Title text="Dark theme" />
         <div className="settings__controls">
-          <Switcher />
+          <Switcher callback={darkTheme} defaultState={themeState} ariaLabel='dark theme'/>
         </div>
       </div>
     </section>
