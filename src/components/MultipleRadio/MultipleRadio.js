@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react'
+
 //Styles
 import "./multipleradio.scss";
 
 
 //options is array with objects (keys: text, value, icon)
-export const MultipleRadio = ({ props, defaultOption }) => {
+export const MultipleRadio = ({ props, defaultOption, callback }) => {
 
   const [option, setOption] = useState(defaultOption)
+
+  useEffect(() => {
+    console.log(option)
+  }, [option])
 
   const changeOption = (arg) => setOption(arg);
 

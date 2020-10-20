@@ -28,7 +28,7 @@ function App() {
   //Settings
   const [settingsOpened, setSettingsOpened] = useState(false);
   //Weather
-  const [weatherEnabled, setWeatherEnabled] = useState(false);
+  const [weatherEnabled, setWeatherEnabled] = useState(true);
 
   // Apply browser theme
   useEffect(() => {
