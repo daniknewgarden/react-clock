@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
-//Default update interval = 1000ms
-export const useTime = (interval = 1000) => {
+//Defaults settings: update interval = 1000ms, hours, minutes, seconds type = string
+export const useTime = (options = {interval: 1000, string: true}) => {
   //Current time
   const [now, setNow] = useState(new Date());
   //Final time object
@@ -18,18 +18,18 @@ export const useTime = (interval = 1000) => {
   useEffect(() => {
     const getTime = setInterval(() => {
       setNow(new Date());
-    }, interval);
+    }, options.interval);
     return () => {
       clearInterval(getTime);
     };
-  }, [interval]);
+  }, [options.interval]);
 
   //Get object with current hours, minutes, seconds and rotate degrees for analog clock arrows
   useEffect(() => {
     const timeData = {
-      hours: formatTime(now.getHours()),
-      minutes: formatTime(now.getMinutes()),
-      seconds: formatTime(now.getSeconds()),
+      hours: options.string ? formatTime(now.getHours()) : now.getHours(),
+      minutes: options.string ? formatTime(now.getMinutes()) : now.getMinutes(),
+      seconds: options.string ? formatTime(now.getSeconds()) : now.getSeconds(),
       //360 deg / 12 hours = 30 deg per hour
       hh: now.getHours() * 30,
       //360 deg / 60 = 6 deg per second/minute
@@ -39,6 +39,8 @@ export const useTime = (interval = 1000) => {
 
     setTime(timeData);
   }, [now]);
+
+  console.log(time)
 
   return time;
 };

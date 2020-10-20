@@ -6,7 +6,7 @@ export const usePosition = (options = {}) => {
   // store error message in state
   const [error, setError] = useState();
 
-  // Success handler for geolocation's `getCurrentPosition` method
+  // Success handler for geolocation `getCurrentPosition` method
   const handleSuccess = (pos) => {
     const { latitude, longitude } = pos.coords;
 
@@ -16,7 +16,7 @@ export const usePosition = (options = {}) => {
     });
   };
 
-  // Error handler for geolocation's `getCurrentPosition` method
+  // Error handler for geolocation `getCurrentPosition` method
   const handleError = (error) => {
     setError(error.message);
   };
