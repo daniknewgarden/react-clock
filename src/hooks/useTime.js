@@ -38,9 +38,7 @@ export const useTime = (options = {interval: 1000, string: true}) => {
     };
 
     setTime(timeData);
-  }, [now]);
-
-  console.log(time)
+  }, [now, options.string]);
 
   return time;
 };
