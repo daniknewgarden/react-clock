@@ -1,68 +1,106 @@
+# Simple neomorphism react clock 🕘
+
+![screenshot](https://i.imgur.com/6VgTOO2.png)
+
+[**See demo**](https://react-neomorphism-clock.herokuapp.com/home) <br/>
+
+**Here you can read how to run it, and how to use all components. Lets start 👇**<br/>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## How to run? 🏃‍♂️
 
 In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.<br />
+Runs the app in the development mode. 🛠<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in the interactive watch mode. 🧪<br />
+But right now this feature isn't available. 🌚
 
 ### `npm build`
 
-Builds the app for production to the `build` folder.<br />
+Builds the app for production to the `build` folder. 🏗<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Components guide 🧩
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Analog clock ⌚
 
-### `npm eject`
+![Analog clock screenshot](https://i.imgur.com/Sf4V7pC.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Uses useTime hook to get data about arrows rotation (hh, mm, ss). [See docs]()
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Button 🔘
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![Button screenshot](https://i.imgur.com/ob1VRtM.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Toggle button
 
-## Learn More
+**Props**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| Prop    |   Type   |         Description |
+| ------- | :------: | ------------------: |
+| text    |  string  |  text inside button |
+| icon    |   img    | path to button icon |
+| onClick | function |   callback function |
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Date 📆
 
-### Code Splitting
+![Date screenshot](https://i.imgur.com/kmUBAFS.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Uses useDate hook to get current day and mountName. [See docs]()
 
-### Analyzing the Bundle Size
+### Digital clock 🕦
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+![Digital clock screenshot](https://i.imgur.com/jvoYwbl.png)
 
-### Making a Progressive Web App
+Uses useTime hook to get current time. [See docs]()
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### Settings
 
-### Advanced Configuration
+![Settings screenshot](https://i.imgur.com/7OQTGf8.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+### Switcher
 
-### Deployment
+![Switcher screenshot](https://i.imgur.com/zy5pO0f.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+| Prop         |   Type   |         Description |
+| ------------ | :------: | ------------------: |
+| ariaLabel    |  string  |    aria description |
+| callback     | function |   callback function |
+| defaultState | boolean  | enabled or disabled |
 
-### `npm build` fails to minify
+### Text
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+#### Title
+
+![Title screenshot](https://i.imgur.com/unlnTx2.png)
+
+Heading 2
+
+| Prop |  Type  | Description |
+| ---- | :----: | ----------: |
+| text | string |        text |
+
+#### Subtitle
+
+![Subtitle screenshot](https://i.imgur.com/Ty8PHgX.png)
+
+Heading 3
+
+| Prop |  Type  | Description |
+| ---- | :----: | ----------: |
+| text | string |        text |
+
+### Weather
+
+![Weather screenshot](https://i.imgur.com/m5DWL4p.png)
+
+| Prop      |  Type  |                         Description |
+| --------- | :----: | ----------------------------------: |
+| tempUnits | string | celsius `'_c'` or fahrenheit `'_f'` |
