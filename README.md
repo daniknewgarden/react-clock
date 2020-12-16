@@ -8,6 +8,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## To do:
+
+- Time format changing
+- Temperature units changing
+
 ## How to run? 🏃‍♂️
 
 In the project directory, you can run:
@@ -33,7 +38,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 ![Analog clock screenshot](https://i.imgur.com/Sf4V7pC.png)
 
-Uses useTime hook to get data about arrows rotation (hh, mm, ss). [See docs]()
+Uses useTime hook to get data about arrows rotation (hh, mm, ss). [See docs](https://github.com/daniknewgarden/amazing-react-hooks#usetime- useTime docs)
 
 ### Button 🔘
 
@@ -53,15 +58,15 @@ Toggle button
 
 ![Date screenshot](https://i.imgur.com/kmUBAFS.png)
 
-Uses useDate hook to get current day and mountName. [See docs]()
+Uses useDate hook to get current day and mountName. [See docs](https://github.com/daniknewgarden/amazing-react-hooks#usedate- useDate docs)
 
 ### Digital clock 🕦
 
 ![Digital clock screenshot](https://i.imgur.com/jvoYwbl.png)
 
-Uses useTime hook to get current time. [See docs]()
+Uses useTime hook to get current time. [See docs](https://github.com/daniknewgarden/amazing-react-hooks#usetime- useTime docs)
 
-### Settings
+### Settings ⚙
 
 ![Settings screenshot](https://i.imgur.com/7OQTGf8.png)
 
@@ -97,7 +102,7 @@ Heading 3
 | ---- | :----: | ----------: |
 | text | string |        text |
 
-### Weather
+### Weather ☁
 
 ![Weather screenshot](https://i.imgur.com/m5DWL4p.png)
 
