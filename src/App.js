@@ -1,20 +1,21 @@
 //React
 import React, { useEffect, useState } from "react";
 //Router
-import { Route, useHistory } from 'react-router-dom';
+import { Route, useHistory } from "react-router-dom";
 //Styles
 import "./App.scss";
 //Components
-import { Weather } from './components/Weather/Weather';
-import { Date } from './components/Date/Date';
-import { AnalogClock } from './components/AnalogClock/AnalogClock';
-import { DigitalClock } from './components/DigitalClock/DigitalClock';
+import { Weather } from "./components/Weather/Weather";
+import { Date } from "./components/Date/Date";
+import { AnalogClock } from "./components/AnalogClock/AnalogClock";
+import { DigitalClock } from "./components/DigitalClock/DigitalClock";
 import { Button } from "./components/Button/Button";
 import { Settings } from "./components/Settings/Settings";
 //Hooks
 import { useBrowserTheme } from "./hooks/useBrowserTheme";
 //Icons
 import icon from "./icons/SettingsUnactive.svg";
+import { getDataFromAPI } from "./API/getAPiData";
 
 //Component
 function App() {
@@ -38,30 +39,30 @@ function App() {
   }, [browserTheme]);
 
   const toggleTheme = () => {
-    setDarkTheme(!darkTheme)
-  }
+    setDarkTheme(!darkTheme);
+  };
 
   const toggleWeather = () => {
     setWeatherEnabled(!weatherEnabled);
-  }
+  };
 
   //Routing
   const history = useHistory();
 
   const handleHistory = () => {
-    setSettingsOpened(!settingsOpened)
-  }
+    setSettingsOpened(!settingsOpened);
+  };
 
   useEffect(() => {
-    settingsOpened ? history.push('/settings') : history.push('/home')
-  }, [history, settingsOpened])
+    settingsOpened ? history.push("/settings") : history.push("/home");
+  }, [history, settingsOpened]);
 
   //UI
   return (
     <div className={`App ${darkTheme ? "dark" : "light"}`}>
-      <Route path='/home'>
+      <Route path="/home">
         <div className="App__top-part">
-          {weatherEnabled && <Weather/>}
+          {weatherEnabled && <Weather />}
           <Date />
         </div>
         <div className="App__middle-part">
@@ -69,11 +70,16 @@ function App() {
           <DigitalClock />
         </div>
       </Route>
-      <Route path='/settings'>
-        <Settings weather={toggleWeather} weatherState={weatherEnabled} darkTheme={toggleTheme} themeState={darkTheme}/>
+      <Route path="/settings">
+        <Settings
+          weather={toggleWeather}
+          weatherState={weatherEnabled}
+          darkTheme={toggleTheme}
+          themeState={darkTheme}
+        />
       </Route>
       <div className="App__bottom-part">
-        <Button icon={icon} onClick={handleHistory}/>
+        <Button icon={icon} onClick={handleHistory} />
       </div>
     </div>
   );

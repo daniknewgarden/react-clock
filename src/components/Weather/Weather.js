@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { getDataFromAPI } from "../../API/getAPiData";
 //Hooks
 import { usePosition } from "../../hooks/usePosition";
 //Components
@@ -20,19 +21,30 @@ export const Weather = () => {
   const [locationInfo, setLocationInfo] = useState(null);
 
   //Api request
-  //TODO: Replace to useMemo
   useEffect(() => {
+    setDataFromAPI(null);
+
     if (location) {
-      fetch(
-        `https://api.weatherapi.com/v1/current.json?key=4211749ff95543348f4191634202508&q=${location.latitude}, ${location.longitude}`
+      const abortController = new AbortController();
+
+      getDataFromAPI(
+        `https://api.weatherapi.com/v1/current.json?key=4211749ff95543348f4191634202508&q=${location.latitude},${location.longitude}`,
+        {
+          signal: abortController.signal,
+        }
       )
         .then((response) => response.json())
-        .then(function (data) {
-          setDataFromAPI(data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+        .then(
+          (result) => {
+            if (abortController.signal.aborted) {
+              return;
+            }
+            setDataFromAPI(result);
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
     }
   }, [location]);
 
