@@ -30,6 +30,8 @@ function App() {
   const [settingsOpened, setSettingsOpened] = useState(false);
   //Weather
   const [weatherEnabled, setWeatherEnabled] = useState(true);
+  //Temperature unit of measurement set false if you want to use fahrenheit
+  const [celsius, setCelsius] = useState(true);
 
   // Apply browser theme
   useEffect(() => {
@@ -44,6 +46,10 @@ function App() {
 
   const toggleWeather = () => {
     setWeatherEnabled(!weatherEnabled);
+  };
+
+  const changeTempUnits = (celsius) => {
+    setCelsius(celsius);
   };
 
   //Routing
@@ -62,7 +68,7 @@ function App() {
     <div className={`App ${darkTheme ? "dark" : "light"}`}>
       <Route path="/home">
         <div className="App__top-part">
-          {weatherEnabled && <Weather />}
+          {weatherEnabled && <Weather celsius={celsius} />}
           <Date />
         </div>
         <div className="App__middle-part">
@@ -76,6 +82,8 @@ function App() {
           weatherState={weatherEnabled}
           darkTheme={toggleTheme}
           themeState={darkTheme}
+          celsius={celsius}
+          setCelsius={changeTempUnits}
         />
       </Route>
       <div className="App__bottom-part">

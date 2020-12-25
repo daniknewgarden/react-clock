@@ -1,3 +1,4 @@
+import { cleanup } from "@testing-library/react";
 import React, { useEffect, useState } from "react";
 import { getDataFromAPI } from "../../API/getAPiData";
 //Hooks
@@ -8,15 +9,14 @@ import { Title } from "../Text/Title/Title";
 //Styles
 import "./weather.scss";
 
-export const Weather = () => {
+export const Weather = ({ celsius }) => {
   //Location
   const { location, error } = usePosition();
   //Data from API
   const [dataFromAPI, setDataFromAPI] = useState(null);
   //Weather
   const [weather, setWeather] = useState(null);
-  //Temperature unit of measurement set false if you want to use fahrenheit
-  const [celsius, setCelsius] = useState(true);
+
   //Location info (city name)
   const [locationInfo, setLocationInfo] = useState(null);
 
